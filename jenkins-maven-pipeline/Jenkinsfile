@@ -1,9 +1,12 @@
 pipeline{
     agent any
+    triggers {
+        githubPush()
+    }
     stages {
 	stage('code checkout') {
             steps {
-		git branch: 'main', crendentialsId: 'github-ssh-key', url: 'git@github.com:lavanyayadav72/jenkins_maven_pipeline.git'
+		git branch: 'main', credentialsId: 'github-ssh-key', url: 'git@github.com:lavanyayadav72/jenkins_maven_pipeline.git'
             }
        }
     }
