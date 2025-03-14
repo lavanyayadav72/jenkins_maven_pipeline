@@ -6,7 +6,10 @@ pipeline{
     stages {
 	stage('code checkout') {
             steps {
-		git branch: 'main', credentialsId: 'github-ssh-key', url: 'git@github.com:lavanyayadav72/jenkins_maven_pipeline.git'
+		git(
+                    url: 'git@github.com:lavanyayadav72/jenkins_maven_pipeline.git'
+                    credentialsId: 'github-ssh-key'
+                   )
             }
        }
     }
